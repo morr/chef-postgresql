@@ -3,6 +3,8 @@
 # Provider:: language
 #
 
+use_inline_resources
+
 # Support whyrun
 def whyrun_supported?
   true
@@ -32,7 +34,7 @@ action :drop do
         user "postgres"
       end
 
-      if language_package_needed?  # ~FC023 - scope
+      if language_package_needed? # ~FC023 - scope
         package language_package_map[new_resource.name] do
           action :purge
         end
@@ -76,7 +78,7 @@ def control_file_name_for_language(language)
   control_file_map.fetch(language) { |key| key }
 end
 
-def language_package_map  # rubocop:disable Metrics/MethodLength
+def language_package_map # rubocop:disable Metrics/MethodLength
   {
     "pllua" => "postgresql-#{pg_version}-pllua",
     "plperl" => "postgresql-plperl-#{pg_version}",
