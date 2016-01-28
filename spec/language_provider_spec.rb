@@ -21,7 +21,7 @@ describe "postgresql_language" do
     end
 
     specify do
-      expect(chef_run).to install_package "postgresql-contrib-9.4"
+      expect(chef_run).to install_package "postgresql-contrib-9.5"
 
       expect(chef_run).to create_postgresql_language("plpgsql").with(
         database: "foo-db"
@@ -40,22 +40,22 @@ describe "postgresql_language" do
         user: "postgres"
       )
 
-      expect(chef_run).to install_package "postgresql-9.4-plv8"
+      expect(chef_run).to install_package "postgresql-9.5-plv8"
       expect(chef_run).to run_execute("createlang plv8 foo-db").with(
         user: "postgres"
       )
 
-      expect(chef_run).to install_package "postgresql-plperl-9.4"
+      expect(chef_run).to install_package "postgresql-plperl-9.5"
       expect(chef_run).to run_execute("createlang plperl foo-db").with(
         user: "postgres"
       )
 
-      expect(chef_run).to install_package "postgresql-plpython-9.4"
+      expect(chef_run).to install_package "postgresql-plpython-9.5"
       expect(chef_run).to run_execute("createlang plpythonu foo-db").with(
         user: "postgres"
       )
 
-      expect(chef_run).to install_package "postgresql-plpython3-9.4"
+      expect(chef_run).to install_package "postgresql-plpython3-9.5"
       expect(chef_run).to run_execute("createlang plpython3u foo-db").with(
         user: "postgres"
       )
@@ -99,22 +99,22 @@ describe "postgresql_language" do
         user: "postgres"
       )
 
-      expect(chef_run).to purge_package "postgresql-9.4-plv8"
+      expect(chef_run).to purge_package "postgresql-9.5-plv8"
       expect(chef_run).to run_execute("droplang plv8 bar-db").with(
         user: "postgres"
       )
 
-      expect(chef_run).to purge_package "postgresql-plperl-9.4"
+      expect(chef_run).to purge_package "postgresql-plperl-9.5"
       expect(chef_run).to run_execute("droplang plperl bar-db").with(
         user: "postgres"
       )
 
-      expect(chef_run).to purge_package "postgresql-plpython-9.4"
+      expect(chef_run).to purge_package "postgresql-plpython-9.5"
       expect(chef_run).to run_execute("droplang plpythonu bar-db").with(
         user: "postgres"
       )
 
-      expect(chef_run).to purge_package "postgresql-plpython3-9.4"
+      expect(chef_run).to purge_package "postgresql-plpython3-9.5"
       expect(chef_run).to run_execute("droplang plpython3u bar-db").with(
         user: "postgres"
       )

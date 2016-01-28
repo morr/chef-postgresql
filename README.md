@@ -23,8 +23,9 @@ Currently supported versions:
 * `9.2`
 * `9.3`
 * `9.4`
+* `9.5`
 
-The default version is `9.4`.
+The default version is `9.5`.
 
 ## Requirements
 
@@ -33,6 +34,7 @@ The default version is `9.4`.
 The following platforms are supported by this cookbook, meaning that the recipes run on these platforms without error:
 
 * Debian 7.8
+* Debian 8.2
 * Ubuntu 12.04
 * Ubuntu 14.04
 

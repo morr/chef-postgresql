@@ -20,7 +20,7 @@ describe "postgresql_extension" do
     end
 
     specify do
-      expect(chef_run).to install_package "postgresql-contrib-9.4"
+      expect(chef_run).to install_package "postgresql-contrib-9.5"
 
       expect(chef_run).to create_postgresql_extension("hstore").with(
         action: [:create],
