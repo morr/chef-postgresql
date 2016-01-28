@@ -29,4 +29,3 @@ supports "ubuntu"
 supports "debian"
 
 depends "apt", ">= 2.6.1"
-suggests "minitest-handler"

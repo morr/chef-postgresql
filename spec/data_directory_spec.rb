@@ -22,7 +22,7 @@ describe "postgresql::data_directory" do
 
   context "the data directory already exists" do
     before do
-      allow(::File).to receive_messages(:exist? => true)
+      allow(::File).to receive_messages(exist?: true)
     end
 
     specify do

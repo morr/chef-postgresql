@@ -3,6 +3,8 @@
 # Provider:: database
 #
 
+use_inline_resources
+
 # Support whyrun
 def whyrun_supported?
   true

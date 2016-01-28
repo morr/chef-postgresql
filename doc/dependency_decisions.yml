@@ -1,0 +1,46 @@
+---
+- - :whitelist
+  - MIT
+  - :who: 
+    :why: 
+    :when: 2016-01-21 15:45:48.312926000 Z
+- - :whitelist
+  - ruby
+  - :who: 
+    :why: 
+    :when: 2016-01-21 15:45:51.287316000 Z
+- - :whitelist
+  - Apache 2.0
+  - :who: 
+    :why: 
+    :when: 2016-01-21 15:45:55.837328000 Z
+- - :whitelist
+  - Apache v2
+  - :who: 
+    :why: 
+    :when: 2016-01-21 15:46:10.034831000 Z
+- - :approve
+  - sfl
+  - :who: 
+    :why: 2-clause BSDL or the Ruby licence
+    :when: 2016-01-21 15:47:53.825041000 Z
+- - :whitelist
+  - BSD
+  - :who: 
+    :why: 
+    :when: 2016-01-21 15:48:08.909743000 Z
+- - :whitelist
+  - ISC
+  - :who: 
+    :why: 
+    :when: 2016-01-21 15:48:12.414985000 Z
+- - :approve
+  - minitar
+  - :who: 
+    :why: GPL version 2 (or later) or Ruby licence
+    :when: 2016-01-21 15:48:53.321034000 Z
+- - :approve
+  - bundler
+  - :who: 
+    :why: 
+    :when: 2016-01-21 18:23:12.889533000 Z

@@ -3,6 +3,8 @@
 # Provider:: extension
 #
 
+use_inline_resources
+
 # Support whyrun
 def whyrun_supported?
   true
@@ -49,7 +51,7 @@ end
 
 def extension_name
   name = new_resource.name
-  name.match("-") ? %("#{name}") : name
+  name =~ /-/ ? %("#{name}") : name
 end
 
 def extension_exists?
