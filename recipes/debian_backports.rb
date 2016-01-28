@@ -4,10 +4,11 @@
 #
 
 # backports for initial support
-backports_uri = if node["lsb"]["codename"] == "wheezy"
-                  "http://cdn.debian.net/debian"
-                else
+backports_uri = if node["lsb"]["codename"] == "squeeze"
                   "http://backports.debian.org/debian-backports"
+                else
+                  # starting with 7.0/wheezy:
+                  "http://httpredir.debian.org/debian"
                 end
 
 apt_repository "debian-backports" do
