@@ -153,7 +153,9 @@ max_stack_depth = <%= node["postgresql"]["max_stack_depth"] %>      # min 100kB
 max_files_per_process = <%= node["postgresql"]["max_files_per_process"] %>   # min 25
 <%- end %>
           # (change requires restart)
-#shared_preload_libraries = '<%= node["postgresql"]["shared_preload_libraries"] %>'    # (change requires restart)
+<%- if node["postgresql"]["shared_preload_libraries"] && node["postgresql"]["shared_preload_libraries"] != '' %>
+shared_preload_libraries = '<%= node["postgresql"]["shared_preload_libraries"] %>'    # (change requires restart)
+<%- end %>
 
 # - Cost-Based Vacuum Delay -
 
