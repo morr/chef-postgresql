@@ -32,7 +32,7 @@ action :drop do
         user "postgres"
       end
 
-      if language_package_needed?  # ~FC023 - scope
+      if language_package_needed?
         package language_package_map[new_resource.name] do
           action :purge
         end
@@ -51,7 +51,7 @@ def load_current_resource
 end
 
 def language_exists?
-  exists = %(psql -c 'SELECT lanname FROM pg_catalog.pg_language' #{new_resource.database} | grep '^ #{language_name}$') # rubocop:disable LineLength
+  exists = %(psql -c 'SELECT lanname FROM pg_catalog.pg_language' #{new_resource.database} | grep '^ #{language_name}$')
 
   cmd = Mixlib::ShellOut.new(exists, user: "postgres")
   cmd.run_command
@@ -76,7 +76,7 @@ def control_file_name_for_language(language)
   control_file_map.fetch(language) { |key| key }
 end
 
-def language_package_map  # rubocop:disable Metrics/MethodLength
+def language_package_map
   {
     "pllua" => "postgresql-#{pg_version}-pllua",
     "plperl" => "postgresql-plperl-#{pg_version}",

@@ -49,7 +49,7 @@ end
 
 def extension_name
   name = new_resource.name
-  name.match("-") ? %("#{name}") : name
+  name =~ /-/ ? %("#{name}") : name
 end
 
 def extension_exists?

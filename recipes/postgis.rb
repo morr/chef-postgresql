@@ -3,13 +3,6 @@
 # Recipe:: postgis
 #
 
-if platform?("debian")
-  log "The `postgis` recipe is not available for Debian at this time" do
-    level :warn
-  end
-  return
-end
-
 include_recipe "postgresql"
 
 pg_version = node["postgresql"]["version"]

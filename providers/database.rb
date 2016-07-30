@@ -59,7 +59,7 @@ def load_current_resource
   @current_resource.exists = database_exists?
 end
 
-def database_exists? # rubocop:disable AbcSize
+def database_exists?
   sql = %(SELECT datname from pg_database WHERE datname='#{new_resource.name}')
 
   exists = %(psql -c "#{sql}" postgres)

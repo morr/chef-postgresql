@@ -58,14 +58,14 @@ def load_current_resource
 end
 
 def user_exists?
-  exists = %(psql -c "SELECT rolname FROM pg_roles WHERE rolname='#{new_resource.name}'" | grep '#{new_resource.name}') # rubocop:disable LineLength
+  exists = %(psql -c "SELECT rolname FROM pg_roles WHERE rolname='#{new_resource.name}'" | grep '#{new_resource.name}')
 
   cmd = Mixlib::ShellOut.new(exists, user: "postgres")
   cmd.run_command
   cmd.exitstatus.zero?
 end
 
-def role_sql  # rubocop:disable AbcSize, MethodLength
+def role_sql
   sql = %(\\\"#{new_resource.name}\\\" )
 
   %w[superuser createdb createrole inherit replication login].each do |perm|

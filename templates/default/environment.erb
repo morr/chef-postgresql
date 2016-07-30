@@ -5,7 +5,6 @@
 # I. e. you need to enclose any value which does not only consist of letters,
 # numbers, and '-', '_', '.' in single quotes. Shell commands are not
 # evaluated.
-
 <% node["postgresql"]["environment_variables"].each_pair do |k, v| %>
 <%= "#{k} = #{v}" %>
 <% end %>

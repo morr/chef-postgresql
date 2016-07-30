@@ -71,21 +71,23 @@
 # "host" records.  In that case you will also need to make PostgreSQL
 # listen on a non-local interface via the listen_addresses
 # configuration parameter, or via the -i or -h command line switches.
-
 <% node["postgresql"]["pg_hba"].each do |hba| %>
 <%= hba["type"] %> <%= hba["db"] %> <%= hba["user"] %> <%= hba["addr"] %> <%= hba["method"] %>
 <% end %>
 
+
+<% if node["postgresql"]["pg_hba_defaults"] %>
 # DO NOT DISABLE!
 # If you change this first entry you will need to make sure that the
 # database superuser can access the database using some other method.
 # Noninteractive access to all databases is required during automatic
 # maintenance (custom daily cronjobs, replication, and similar tasks).
 #
-# TYPE  DATABASE        USER            ADDRESS                 METHOD
-<% if node["postgresql"]["pg_hba_defaults"] %>
 # Database administrative login by Unix domain socket
 local   all             postgres                                peer
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
 # "local" is for Unix domain socket connections only
 local   all             all                                     peer
 # IPv4 local connections:

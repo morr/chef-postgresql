@@ -4,10 +4,16 @@ AllCops:
     - "vendor/**/*"
 
 LineLength:
-  Max: 80
-  Exclude:
-    - "**/attributes/*.rb"
-    - "**/metadata.rb"
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
 
 StringLiterals:
   EnforcedStyle: double_quotes
@@ -19,8 +25,5 @@ PercentLiteralDelimiters:
   PreferredDelimiters:
     "%w": "[]"  # Arrays use brackets
 
-SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: false  # too strict about metadata and certain formatting
-
-inherit_from: test/rubocop/enabled.yml
-inherit_from: test/rubocop/disabled.yml

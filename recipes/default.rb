@@ -3,18 +3,15 @@
 # Recipe:: default
 #
 
-# pin default package preferences
-apt_preference "pgdg" do
-  glob "*"
-  pin "release o=apt.postgresql.org"
-  pin_priority "750"
+include_recipe "locale"
+
+apt_repository node["postgresql"]["apt_repository"] do
+  uri          node["postgresql"]["apt_uri"]
+  distribution "#{node["postgresql"]["apt_distribution"]}-pgdg"
+  components   node["postgresql"]["apt_components"]
+  key          node["postgresql"]["apt_key"]
+  keyserver    node["postgresql"]["apt_keyserver"]
 end
 
-case node["platform"]
-when "ubuntu"
-  include_recipe "postgresql::apt_repository"
-  package "postgresql-common"  # install common files
-when "debian"
-  include_recipe "postgresql::debian_backports"
-  include_recipe "postgresql::apt_repository"
-end
+package "pgdg-keyring"       # automatically get repository key updates
+package "postgresql-common"  # install common files

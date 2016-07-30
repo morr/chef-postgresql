@@ -6,11 +6,11 @@
 include_recipe "postgresql"
 
 # don't auto-start the service to allow custom configuration
-file "/usr/sbin/policy-rc.d" do
-  mode "0755"
-  content("#!/bin/sh\nexit 101\n")
-  not_if "pgrep postgres"
-end
+# file "/usr/sbin/policy-rc.d" do
+#   mode "0755"
+#   content("#!/bin/sh\nexit 101\n")
+#   not_if "pgrep postgres"
+# end
 
 # install the package
 package "postgresql-#{node["postgresql"]["version"]}"

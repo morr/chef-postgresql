@@ -1,12 +1,20 @@
-*.tgz
-*.tar.gz
-vendor/bundle
-.bundle
-.DS_Store
-build/*
-tmp/
+*~
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+pkg/
+
+# Berkshelf
+.vagrant
+/cookbooks
 Berksfile.lock
+
+# Bundler
 Gemfile.lock
-.coverage
+bin/*
+.bundle/*
+
 .kitchen/
 .kitchen.local.yml
