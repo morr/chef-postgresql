@@ -13,5 +13,5 @@ apt_repository node["postgresql"]["apt_repository"] do
   keyserver    node["postgresql"]["apt_keyserver"]
 end
 
-package "pgdg-keyring"       # automatically get repository key updates
-package "postgresql-common"  # install common files
+package "pgdg-keyring"       # Automatically get repository key updates
+package "postgresql-common"  # Install common files

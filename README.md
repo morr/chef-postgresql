@@ -18,7 +18,6 @@ The default version is `9.5`.
 
 The following platforms are supported by this cookbook, meaning that the recipes run on these platforms without error:
 
-* Ubuntu 12.04
 * Ubuntu 14.04
 
 ### Chef
@@ -33,30 +32,17 @@ This cookbook requires Chef >= 12.9 due to the use of the built in `apt_reposito
 ## Recipes
 
 * `postgresql` - Set up the apt repository and install dependent packages
-* `postgresql::apt_repository` - Internal recipe to setup the apt repository
-* `postgresql::client` - Front-end programs for PostgreSQL 9.x
+* `postgresql::client` - Client programs for PostgreSQL 9.x
 * `postgresql::configuration` - Internal recipe to manage configuration files
-* `postgresql::contrib` - Additional facilities for PostgreSQL
 * `postgresql::data_directory` - Internal recipe to setup the data directory
-* `postgresql::dbg` - Debug symbols for the server daemon
-* `postgresql::doc` - Documentation for the PostgreSQL database management system
-* `postgresql::libpq` - PostgreSQL C client library and header files for libpq5 (PostgreSQL library)
-* `postgresql::postgis` - Geographic objects support for PostgreSQL 9.x _(currently Ubuntu only)_
+* `postgresql::postgis` - Geographic objects support for PostgreSQL 9.x
 * `postgresql::server` - Object-relational SQL database, version 9.x server
-* `postgresql::server_dev` - Development files for PostgreSQL server-side programming
 * `postgresql::service` - Internal recipe to declare the system service
 * `postgresql::setup_databases` - Internal recipe to manage specified databases
 * `postgresql::setup_extensions` - Internal recipe to manage specified database extensions
-* `postgresql::setup_languages` - Internal recipe to manage specified database languages
 * `postgresql::setup_users` - Internal recipe to manage specified users
 
-
-## Usage
-
-This cookbook installs the postgresql components if not present, and pulls updates if they are installed on the system.
-
-This cookbook provides three definitions to create, alter, and delete users as well as create and drop databases, or setup extensions. Usage is as follows:
-
+## LWRP
 
 ### Users
 
@@ -121,10 +107,6 @@ postgresql_extension "hstore" do
   database "mydb"
 end
 
-postgresql_language "plpgsql" do
-  database "mydb"
-end
-
 # drop dblink extension
 postgresql_extension "dblink" do
   database "mydb"
@@ -182,40 +164,9 @@ You may also set the contents of `pg_hba.conf` via attributes:
 }
 ```
 
-### Change APT distribution
-
-Currently the APT distributions are sourced from [http://apt.postgresql.org/pub/repos/apt/](http://apt.postgresql.org/pub/repos/apt/).
-In some cases this source might not immediately contain a package for the distribution of your target system.
-
-The `node["postgresql"]["apt_distribution"]` attribute can be used to install PostgreSQL from a different compatible
-distribution:
-
-```json
-"postgresql": {
-  "apt_distribution": "precise"
-}
-```
-
 ## Attributes
 
 Too many to list so refer to [attributes.rb](https://github.com/ChowOps/chef-postgresql/blob/master/attributes/default.rb)
-
-
-## TODO
-
-* Add support for replication setup
-* Add installation and configuration for the following packages:
-
-```
-postgresql-{version}-ip4r
-postgresql-{version}-pgq3
-postgresql-{version}-pgmp
-postgresql-{version}-plproxy
-postgresql-{version}-repmgr
-postgresql-{version}-debversion
-postgresql-{version}-pgpool2
-postgresql-{version}-slony1-2
-```
 
 ## License
 

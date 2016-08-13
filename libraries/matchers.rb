@@ -23,18 +23,6 @@ if defined?(ChefSpec)
     )
   end
 
-  def create_postgresql_language(resource_name)
-    ChefSpec::Matchers::ResourceMatcher.new(
-      :postgresql_language, :create, resource_name
-    )
-  end
-
-  def drop_postgresql_language(resource_name)
-    ChefSpec::Matchers::ResourceMatcher.new(
-      :postgresql_language, :drop, resource_name
-    )
-  end
-
   def create_postgresql_user(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(
       :postgresql_user, :create, resource_name

@@ -2,11 +2,7 @@ require "spec_helper"
 
 describe "Package installation" do
   version = "9.5"
-  packages = %w[
-    postgresql-common postgresql-%s postgresql-client-%s postgresql-contrib-%s
-    postgresql-%s-dbg postgresql-doc-%s libpq5 libpq-dev
-    postgresql-server-dev-%s
-  ].map { |pkg| pkg % version }
+  packages = %w[postgresql-common postgresql-%s postgresql-client-%s postgresql-contrib-%s].map { |pkg| pkg % version }
 
   packages.each do |pkg|
     describe package(pkg) do
@@ -79,21 +75,6 @@ describe "PostgreSQL users, databases, and extensions" do
 
   describe command(cmd_extension_exists("testdb", "fake_extension")) do
     its(:stdout) { should_not match("fake_extension") }
-    its(:exit_status) { should eq 1 }
-  end
-
-  installed_languages = %w[
-    plpgsql plperl plproxy plpythonu plpython3u plr pltcl plv8
-  ]
-  installed_languages.each do |language|
-    describe command(cmd_language_exists("testdb", language)) do
-      its(:stdout) { should match(language) }
-      its(:exit_status) { should eq 0 }
-    end
-  end
-
-  describe command(cmd_language_exists("testdb", "fake_language")) do
-    its(:stdout) { should_not match("fake_language") }
     its(:exit_status) { should eq 1 }
   end
 end

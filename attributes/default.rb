@@ -89,4 +89,3 @@ default["postgresql"]["syslog_ident"]                    = "postgres"
 default["postgresql"]["users"]                           = []
 default["postgresql"]["databases"]                       = []
 default["postgresql"]["extensions"]                      = []
-default["postgresql"]["languages"]                       = []

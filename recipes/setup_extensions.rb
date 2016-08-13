@@ -3,8 +3,6 @@
 # Recipe:: setup_extensions
 #
 
-include_recipe "postgresql::contrib"
-
 # setup database extensions
 node["postgresql"]["extensions"].each do |ext|
   ext_action = (ext["action"] || "create").to_sym

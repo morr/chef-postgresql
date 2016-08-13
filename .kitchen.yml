@@ -12,10 +12,6 @@ suites:
     run_list:
       - recipe[postgresql::server]
       - recipe[postgresql::client]
-      - recipe[postgresql::dbg]
-      - recipe[postgresql::doc]
-      - recipe[postgresql::libpq]
-      - recipe[postgresql::server_dev]
     attributes:
       postgresql:
         version: "9.5"
@@ -69,21 +65,8 @@ suites:
               - tsearch2
               - unaccent
               - xml2
-            languages:
-              - plpgsql
-              - plperl
-              - plproxy
-              - plpython3
-              - plr
-              - plsh
-              - pltcl
         extensions:
           - name: dblink
             database: testdb
           - name: uuid-ossp
-            database: testdb
-        languages:
-          - name: plpython
-            database: testdb
-          - name: plv8
             database: testdb
