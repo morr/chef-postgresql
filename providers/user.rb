@@ -41,8 +41,7 @@ action :drop do
     converge_by "Drop PostgreSQL User #{new_resource.name}" do
       execute "drop postgresql user #{new_resource.name}" do
         user "postgres"
-        command %(psql -c 'DROP ROLE IF EXISTS \\\"#{new_resource.name}\\\"')
-        sensitive true
+        command %(psql -c "DROP ROLE IF EXISTS "#{new_resource.name}"")
       end
 
       new_resource.updated_by_last_action(true)
@@ -66,17 +65,26 @@ def user_exists?
 end
 
 def role_sql
-  sql = %(\\\"#{new_resource.name}\\\" )
+  sql = %("#{new_resource.name}" )
 
-  %w[superuser createdb createrole inherit replication login].each do |perm|
+  %w[
+    superuser
+    createdb
+    createrole
+    inherit
+    replication
+    login
+    bypassrls
+  ].each do |perm|
     sql << "#{"NO" unless new_resource.send(perm)}#{perm.upcase} "
   end
 
-  sql << if new_resource.encrypted_password
-           "ENCRYPTED PASSWORD '#{new_resource.encrypted_password}'"
-         elsif new_resource.password
-           "PASSWORD '#{new_resource.password}'"
-         else
-           ""
-         end
+  sql <<
+    if new_resource.encrypted_password
+      "ENCRYPTED PASSWORD '#{new_resource.encrypted_password}'"
+    elsif new_resource.password
+      "PASSWORD '#{new_resource.password}'"
+    else
+      ""
+    end
 end

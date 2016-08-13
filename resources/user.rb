@@ -13,6 +13,7 @@ attribute :createdb, kind_of: [TrueClass, FalseClass], default: false
 attribute :createrole, kind_of: [TrueClass, FalseClass], default: false
 attribute :inherit, kind_of: [TrueClass, FalseClass], default: true
 attribute :replication, kind_of: [TrueClass, FalseClass], default: false
+attribute :bypassrls, kind_of: [TrueClass, FalseClass], default: false
 attribute :login, kind_of: [TrueClass, FalseClass], default: true
 attribute :password, kind_of: String
 attribute :encrypted_password, kind_of: String
