@@ -18,7 +18,8 @@ The default version is `9.5`.
 
 The following platforms are supported by this cookbook, meaning that the recipes run on these platforms without error:
 
-* Ubuntu 14.04
+- Ubuntu 14.04
+- Ubuntu 16.04
 
 ### Chef
 
