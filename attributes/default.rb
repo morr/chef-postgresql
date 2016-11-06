@@ -7,7 +7,7 @@
 # Copyright 2012-2013, Phil Cohen
 #
 
-default["postgresql"]["version"]                         = "9.5"
+default["postgresql"]["version"]                         = "9.6"
 
 #----------------------------------------------------------------------------
 # DAEMON CONTROL
