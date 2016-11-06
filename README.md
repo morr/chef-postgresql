@@ -8,9 +8,10 @@ Install and configure [PostgreSQL](http://www.postgresql.org) using the [Postgre
 
 Currently supported versions:
 
+* `9.6`
 * `9.5`
 
-The default version is `9.5`.
+The default version is `9.6`.
 
 ## Requirements
 
