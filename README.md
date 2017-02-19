@@ -9,9 +9,6 @@ Install and configure [PostgreSQL](http://www.postgresql.org) using the [Postgre
 Currently supported versions:
 
 * `9.6`
-* `9.5`
-
-The default version is `9.6`.
 
 ## Requirements
 
@@ -19,7 +16,6 @@ The default version is `9.6`.
 
 The following platforms are supported by this cookbook, meaning that the recipes run on these platforms without error:
 
-- Ubuntu 14.04
 - Ubuntu 16.04
 
 ### Chef

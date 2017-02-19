@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "Package installation" do
-  version = "9.5"
+  version = "9.6"
   packages = %w[postgresql-common postgresql-%s postgresql-client-%s postgresql-contrib-%s].map { |pkg| pkg % version }
 
   packages.each do |pkg|
@@ -26,14 +26,14 @@ describe "PostgreSQL server installation" do
     it { should be_listening }
   end
 
-  describe file("/etc/postgresql/9.5/main/postgresql.conf") do
+  describe file("/etc/postgresql/9.6/main/postgresql.conf") do
     it { should be_a_file }
     its(:content) do
-      should match %(hba_file = '/etc/postgresql/9.5/main/pg_hba.conf')
+      should match %(hba_file = '/etc/postgresql/9.6/main/pg_hba.conf')
     end
   end
 
-  describe file("/etc/postgresql/9.5/main/pg_hba.conf") do
+  describe file("/etc/postgresql/9.6/main/pg_hba.conf") do
     it { should be_a_file }
     its(:content) { should match(/local\s+all\s+postgres\s+peer/) }
   end

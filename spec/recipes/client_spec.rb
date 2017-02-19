@@ -9,7 +9,7 @@ describe "postgresql::client" do
     expect(chef_run).to include_recipe("postgresql::default")
   end
 
-  it "installs the `postgresql-client-9.5` package" do
-    expect(chef_run).to install_package("postgresql-client-9.5")
+  it "installs the `postgresql-client-9.6` package" do
+    expect(chef_run).to install_package("postgresql-client-9.6")
   end
 end

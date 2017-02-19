@@ -3,24 +3,24 @@ require "spec_helper"
 describe "postgresql::configuration" do
   let(:chef_run) do
     ChefSpec::SoloRunner.new do |node|
-      node.set["postgresql"]["version"] = "9.5"
+      node.set["postgresql"]["version"] = "9.6"
       node.set["postgresql"]["conf"] = { "foo" => "bar" }
     end.converge("recipe[postgresql::service]", described_recipe)
   end
 
   let(:template_paths) do
     {
-      "environment" => "/etc/postgresql/9.5/main/environment",
-      "pg_ctl.conf" => "/etc/postgresql/9.5/main/pg_ctl.conf",
-      "pg_hba.conf" => "/etc/postgresql/9.5/main/pg_hba.conf",
-      "pg_ident.conf" => "/etc/postgresql/9.5/main/pg_ident.conf",
-      "postgresql.conf" => "/etc/postgresql/9.5/main/postgresql.conf",
-      "start.conf" => "/etc/postgresql/9.5/main/start.conf"
+      "environment" => "/etc/postgresql/9.6/main/environment",
+      "pg_ctl.conf" => "/etc/postgresql/9.6/main/pg_ctl.conf",
+      "pg_hba.conf" => "/etc/postgresql/9.6/main/pg_hba.conf",
+      "pg_ident.conf" => "/etc/postgresql/9.6/main/pg_ident.conf",
+      "postgresql.conf" => "/etc/postgresql/9.6/main/postgresql.conf",
+      "start.conf" => "/etc/postgresql/9.6/main/start.conf"
     }
   end
 
   it "creates the `main` configuration directory" do
-    expect(chef_run).to create_directory("/etc/postgresql/9.5/main/").with(
+    expect(chef_run).to create_directory("/etc/postgresql/9.6/main/").with(
       user: "postgres",
       group: "postgres",
       recursive: true
@@ -102,7 +102,7 @@ describe "postgresql::configuration" do
       context "using the `conf_custom` attribute" do
         let(:chef_run) do
           ChefSpec::SoloRunner.new do |node|
-            node.set["postgresql"]["version"] = "9.5"
+            node.set["postgresql"]["version"] = "9.6"
             node.set["postgresql"]["conf"] = { "foo" => "bar" }
             node.set["postgresql"]["conf_custom"] = true
           end.converge("recipe[postgresql::service]", described_recipe)

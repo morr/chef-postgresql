@@ -7,7 +7,7 @@ describe "postgresql::data_directory" do
 
   context "the data directory does not already exist" do
     specify do
-      expect(chef_run).to create_directory("/var/lib/postgresql/9.5/main").with(
+      expect(chef_run).to create_directory("/var/lib/postgresql/9.6/main").with(
         owner:  "postgres",
         group:  "postgres",
         mode:   "0700",
@@ -24,7 +24,7 @@ describe "postgresql::data_directory" do
     end
 
     specify do
-      expect(chef_run).to_not create_directory("/var/lib/postgresql/9.5/main")
+      expect(chef_run).to_not create_directory("/var/lib/postgresql/9.6/main")
       expect(chef_run).to_not run_bash("postgresql initdb")
     end
   end
