@@ -2,9 +2,9 @@ name             "postgresql"
 maintainer       "Christopher Chow"
 maintainer_email "chris@chowie.net"
 license          "MIT"
-description      "Installs PostgreSQL 9.5"
+description      "Installs PostgreSQL 9.6"
 long_description IO.read(File.join(File.dirname(__FILE__), "README.md"))
-version          "1.0.0"
+version          "2.0.0"
 
 recipe "postgresql",                   "Set up the apt repository and install dependent packages"
 recipe "postgresql::client",           "Front-end programs for PostgreSQL 9.x"
