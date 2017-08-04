@@ -53,7 +53,7 @@ action :drop do
 end
 
 def load_current_resource
-  @current_resource = Chef::Resource::PostgresqlUser.new(new_resource.name)
+  @current_resource = Chef::Resource.resource_for_node(:postgresql_user, node).new(new_resource.name)
   @current_resource.name(new_resource.name)
 
   @current_resource.exists = user_exists?

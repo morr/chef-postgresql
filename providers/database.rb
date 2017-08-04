@@ -55,7 +55,7 @@ action :drop do
 end
 
 def load_current_resource
-  @current_resource = Chef::Resource::PostgresqlDatabase.new(new_resource.name)
+  @current_resource = Chef::Resource.resource_for_node(:postgresql_database, node).new(new_resource.name)
   @current_resource.name(new_resource.name)
 
   @current_resource.exists = database_exists?
