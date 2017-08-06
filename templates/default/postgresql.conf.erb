@@ -68,7 +68,7 @@ log_timezone = 'UTC'
 
 # - Process Title -
 
-cluster_name = '9.5/main' # added to process titles if nonempty (change requires restart)
+cluster_name = '<%= node["postgresql"]["version"] %>/main' # added to process titles if nonempty (change requires restart)
 
 
 #------------------------------------------------------------------------------
@@ -77,7 +77,7 @@ cluster_name = '9.5/main' # added to process titles if nonempty (change requires
 
 # - Query/Index Statistics Collector -
 
-stats_temp_directory = '/var/run/postgresql/9.5-main.pg_stat_tmp'
+stats_temp_directory = '/var/run/postgresql/<%= node["postgresql"]["version"] %>-main.pg_stat_tmp'
 
 # - Locale and Formatting -
 
