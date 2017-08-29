@@ -51,6 +51,13 @@ default_statistics_target = <%= node["postgresql"]["default_statistics_target"] 
 
 dynamic_shared_memory_type = posix
 
+# - Kernel Resource Usage -
+
+# (change requires restart)
+<%- if node["postgresql"]["shared_preload_libraries"] && !node["postgresql"]["shared_preload_libraries"].empty? %>
+shared_preload_libraries = '<%= node["postgresql"]["shared_preload_libraries"] %>'
+<%- end %>
+
 #------------------------------------------------------------------------------
 # ERROR REPORTING AND LOGGING
 #------------------------------------------------------------------------------
