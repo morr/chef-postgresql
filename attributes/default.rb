@@ -74,6 +74,9 @@ default["postgresql"]["wal_buffers"]                     = "3932kB"
 default["postgresql"]["checkpoint_completion_target"]    = 0.7
 default["postgresql"]["default_statistics_target"]       = 100
 
+# Kernel Resource Usage
+default["postgresql"]["shared_preload_libraries"]        = ""
+
 #------------------------------------------------------------------------------
 # ERROR REPORTING AND LOGGING
 #------------------------------------------------------------------------------
@@ -89,3 +92,8 @@ default["postgresql"]["syslog_ident"]                    = "postgres"
 default["postgresql"]["users"]                           = []
 default["postgresql"]["databases"]                       = []
 default["postgresql"]["extensions"]                      = []
+
+#------------------------------------------------------------------------------
+# CUSTOM CONFIG SETTINGS
+#------------------------------------------------------------------------------
+default["postgresql"]["custom_config"]                   = ""
