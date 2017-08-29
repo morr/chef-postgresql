@@ -99,3 +99,12 @@ lc_time = 'en_US.UTF-8'     # locale for time formatting
 
 # default configuration for text search
 default_text_search_config = 'pg_catalog.english'
+
+
+#------------------------------------------------------------------------------
+# CUSTOM CONFIG SETTINGS
+#------------------------------------------------------------------------------
+
+<%- if node["postgresql"]["custom_config"] && !node["postgresql"]["custom_config"].empty? %>
+<%= node["postgresql"]["custom_config"] %>
+<%- end %>
