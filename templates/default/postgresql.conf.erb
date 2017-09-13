@@ -157,6 +157,13 @@ max_files_per_process = <%= node["postgresql"]["max_files_per_process"] %>   # m
 shared_preload_libraries = '<%= node["postgresql"]["shared_preload_libraries"] %>'    # (change requires restart)
 <%- end %>
 
+<%- if node["postgresql"]["min_wal_size"] && node["postgresql"]["min_wal_size"] != '' %>
+min_wal_size = <%= node["postgresql"]["min_wal_size"] %>
+<%- end %>
+<%- if node["postgresql"]["max_wal_size"] && node["postgresql"]["max_wal_size"] != '' %>
+max_wal_size = <%= node["postgresql"]["max_wal_size"] %>
+<%- end %>
+
 # - Cost-Based Vacuum Delay -
 
 #vacuum_cost_delay = <%= node["postgresql"]["vacuum_cost_delay"] %>    # 0-100 milliseconds

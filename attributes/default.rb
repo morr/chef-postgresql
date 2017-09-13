@@ -119,6 +119,9 @@ default["postgresql"]["bgwriter_lru_multiplier"]         = 2.0
 # asynchronous behavior
 default["postgresql"]["effective_io_concurrency"]        = 1
 
+default["postgresql"]["min_wal_size"]                    = ""
+default["postgresql"]["max_wal_size"]                    = ""
+
 #------------------------------------------------------------------------------
 # WRITE AHEAD LOG
 #------------------------------------------------------------------------------
