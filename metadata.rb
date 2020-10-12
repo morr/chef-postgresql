@@ -18,5 +18,3 @@ recipe "postgresql::setup_extensions", "Internal recipe to manage specified data
 recipe "postgresql::setup_users",      "Internal recipe to manage specified users"
 
 supports "ubuntu"
-
-depends "locale"

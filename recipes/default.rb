@@ -3,7 +3,12 @@
 # Recipe:: default
 #
 
-include_recipe "locale"
+split = node["postgresql"]["initdb_options"].split("=")
+if split[1]
+  locale "set system locale" do
+    lang split[1]
+  end
+end
 
 apt_repository node["postgresql"]["apt_repository"] do
   uri          node["postgresql"]["apt_uri"]
